@@ -1,8 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #1e0b5c;
+  --foreground: #ffffff;
 }
 
 @theme inline {
@@ -12,15 +13,161 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Fredoka", "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+}
+
+.font-game {
+  font-family: "Fredoka", "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+}
+
+/* ---------- Teks judul kartun ---------- */
+.fk-title {
+  text-shadow:
+    0 3px 0 #3b0764,
+    0 6px 0 #2e1065,
+    0 10px 18px rgba(0, 0, 0, 0.45);
+  -webkit-text-stroke: 2px #2e1065;
+  paint-order: stroke fill;
+}
+
+/* ---------- Tombol 3D kartun ---------- */
+.btn-3d {
+  --c: #22d3ee;
+  --d: #0e7490;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 78%, white), var(--c));
+  box-shadow: 0 6px 0 var(--d), 0 12px 20px rgba(0, 0, 0, 0.35);
+  border: 3px solid rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+  color: #1e1b4b;
+  border-radius: 1.1rem;
+  transition: transform 0.08s, box-shadow 0.08s, filter 0.15s;
+  cursor: pointer;
+}
+.btn-3d:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+.btn-3d:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 var(--d), 0 4px 8px rgba(0, 0, 0, 0.35);
+}
+.btn-3d:disabled {
+  filter: grayscale(0.7);
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+.btn-cyan { --c: #22d3ee; --d: #0e7490; }
+.btn-green { --c: #4ade80; --d: #15803d; }
+.btn-yellow { --c: #fde047; --d: #b45309; }
+.btn-pink { --c: #f472b6; --d: #9d174d; }
+.btn-purple { --c: #a78bfa; --d: #5b21b6; color: #fff; }
+.btn-red { --c: #fb7185; --d: #9f1239; color: #fff; }
+.btn-ghost { --c: rgba(255, 255, 255, 0.18); --d: rgba(0, 0, 0, 0.35); color: #fff; }
+
+/* ---------- Kartu kartun ---------- */
+.card-cartoon {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08));
+  border: 3px solid rgba(255, 255, 255, 0.45);
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25), 0 14px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+}
+
+/* ---------- Animasi ---------- */
+@keyframes fk-twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+@keyframes fk-drift {
+  0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-15vh) rotate(40deg); opacity: 0; }
+}
+@keyframes fk-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes fk-wiggle {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+@keyframes fk-pop {
+  0% { transform: scale(0.4); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes fk-slide {
+  0% { transform: translateY(24px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes fk-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+@keyframes fk-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(253, 224, 71, 0.5); }
+  50% { box-shadow: 0 0 28px rgba(253, 224, 71, 1); }
+}
+@keyframes fk-count {
+  0% { transform: scale(2.2); opacity: 0; }
+  30% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.85); opacity: 0.7; }
+}
+@keyframes fk-ring {
+  0% { transform: translate(-50%, -50%) scale(0.4); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2.4); opacity: 0; }
+}
+@keyframes fk-judge {
+  0% { transform: translateY(14px) scale(0.6); opacity: 0; }
+  20% { transform: translateY(0) scale(1.15); opacity: 1; }
+  70% { transform: translateY(-14px) scale(1); opacity: 1; }
+  100% { transform: translateY(-30px) scale(0.95); opacity: 0; }
+}
+@keyframes fk-beam {
+  0% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+@keyframes fk-golden {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.08); filter: brightness(1.2); }
+}
+@keyframes fk-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes fk-star {
+  0% { transform: scale(0) rotate(-90deg); opacity: 0; }
+  70% { transform: scale(1.3) rotate(10deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+@keyframes demo-fall {
+  from { transform: translateY(-40px); }
+  to { transform: translateY(280px); }
+}
+
+.anim-twinkle { animation: fk-twinkle 2.5s ease-in-out infinite; }
+.anim-drift { animation: fk-drift 14s linear infinite; }
+.anim-bob { animation: fk-bob 2.4s ease-in-out infinite; }
+.anim-wiggle { animation: fk-wiggle 1.6s ease-in-out infinite; }
+.anim-pop { animation: fk-pop 0.4s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+.anim-slide { animation: fk-slide 0.45s ease-out both; }
+.anim-shake { animation: fk-shake 0.4s; }
+.anim-glow { animation: fk-glow 1.2s ease-in-out infinite; }
+.anim-count { animation: fk-count 1s ease-out both; }
+.anim-spin { animation: fk-spin 6s linear infinite; }
+.anim-star { animation: fk-star 0.6s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+.fx-ring { animation: fk-ring 0.55s ease-out forwards; }
+.fx-judge { animation: fk-judge 0.75s ease-out forwards; }
+.fx-beam { animation: fk-beam 0.4s ease-out forwards; }
+.golden-note { animation: fk-golden 0.8s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-twinkle, .anim-drift, .anim-bob, .anim-wiggle, .anim-glow,
+  .anim-spin, .golden-note { animation: none; }
 }
